@@ -1,0 +1,10 @@
+name: Locate Important Constants
+on: [push]
+
+jobs:
+  find-constants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./tools/linux/find-constants 
+      - run: cat ./constants > $GITHUB_STEP_SUMMARY
